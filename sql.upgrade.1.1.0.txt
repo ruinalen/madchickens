@@ -1,0 +1,11 @@
+-- 코멘트 등록시 원문 작성자에게 이메일 알림
+INSERT INTO tb_setting (parameter, value, default_bbs, exec_user_idx, client_ip) VALUES ('by_write_comment_send_mail_used', 0, 0, (SELECT idx FROM tb_users WHERE user_id = 'admin'), 'BUILT IN');
+INSERT INTO tb_setting (parameter, value, default_bbs, exec_user_idx, client_ip) VALUES ('by_write_comment_send_mail_from_user_idx', (SELECT idx FROM tb_users WHERE user_id = 'admin'), 0, (SELECT idx FROM tb_users WHERE user_id = 'admin'), 'BUILT IN');
+INSERT INTO tb_setting (parameter, value, default_bbs, exec_user_idx, client_ip) VALUES ('by_write_comment_send_mail_title', '[TapBBS 댓글 등록 알림] {title}', 0, (SELECT idx FROM tb_users WHERE user_id = 'admin'), 'BUILT IN');
+INSERT INTO tb_setting (parameter, value, default_bbs, exec_user_idx, client_ip) VALUES ('by_write_comment_send_mail_contents', '댓글 작성자 : {nickname}({user_id})\n작성시각 : {date}\n\n{contents}\n\n{link}', 0, (SELECT idx FROM tb_users WHERE user_id = 'admin'), 'BUILT IN');
+INSERT INTO tb_setting (parameter, value, default_bbs, exec_user_idx, client_ip) VALUES ('by_write_comment_send_mail_contents_cut_length', 10, 0, (SELECT idx FROM tb_users WHERE user_id = 'admin'), 'BUILT IN');
+
+-- 회원가입시 쪽지 알림
+INSERT INTO tb_setting (parameter, value, default_bbs, exec_user_idx, client_ip) VALUES ('by_join_send_message_used', 0, 0, (SELECT idx FROM tb_users WHERE user_id = 'admin'), 'BUILT IN');
+INSERT INTO tb_setting (parameter, value, default_bbs, exec_user_idx, client_ip) VALUES ('by_join_send_message_from_user_idx', (SELECT idx FROM tb_users WHERE user_id = 'admin'), 0, (SELECT idx FROM tb_users WHERE user_id = 'admin'), 'BUILT IN');
+INSERT INTO tb_setting (parameter, value, default_bbs, exec_user_idx, client_ip) VALUES ('by_join_send_message_contents', '환영합니다. 즐거운 하루되시기 바랍니다.', 0, (SELECT idx FROM tb_users WHERE user_id = 'admin'), 'BUILT IN');
